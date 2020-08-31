@@ -102,12 +102,16 @@ set encoding=utf-8
 set tags+=~/.vim/systags
 ```
 
-vim里执行PlugInstall
+#4. 安装vim的插件
+```bash
+vim里键入:PlugInstall
 
-YouCompleteMe重编译
+# YouCompleteMe重编译
 cd ~/.vim/plugged/YouCompleteMe
 python3 install.py
 
 构建系统自带库索引
 ctags -I __THROW -I __attribute_pure__ -I __nonnull -I __attribute__ --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q -R -f ~/.vim/systags /usr/include /usr/local/include
+```
 
+## 5.配好conan和clang8的docker镜像，可以开箱即用的cpp开发环境:docker pull  zqmath1994/cpp_dev:latest
