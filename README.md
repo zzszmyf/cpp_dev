@@ -1,5 +1,6 @@
 # cpp_dev
 ```shell
+## 1. 安装常用软件和基础开发编译环境
 apt-get install gcc
 apt-get install gcc-c++
 apt-get install cmake
@@ -14,9 +15,10 @@ apt-get install python3 python3-pip
 apt-get install aptitude
 apt install vim
 
+## 2. 下载vim插件和ctag工具，并配置
 cd ~ && curl -fLo ~/.vim/autoload/plug.vim --create-dirs     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-安装ctags
+#安装ctags
 git clone https://github.com/universal-ctags/ctags.git
 cd ctags/
 ./autogen.sh
@@ -25,7 +27,7 @@ make && make install
 echo 'alias ctags="ctags --output-format=e-ctags"' > ~/.bashrc
 source ~/.bashrc
 ```
-
+```vimrc
  vimrc 配置
 set nu
 call plug#begin('~/.vim/plugged')
@@ -93,6 +95,7 @@ set shiftwidth=4
 set hlsearch 
 set encoding=utf-8
 set tags+=~/.vim/systags
+```
 
 vim里执行PlugInstall
 
