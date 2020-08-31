@@ -32,8 +32,8 @@ echo 'alias ctags="ctags --output-format=e-ctags"' > ~/.bashrc
 source ~/.bashrc
 ```
 
+###  3. vimrc 配置
 ```vimrc
- vimrc 配置
 set nu
 call plug#begin('~/.vim/plugged')
 " 定义插件，默认用法，和 Vundle 的语法差不多
