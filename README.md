@@ -1,4 +1,5 @@
 # cpp_dev
+```shell
 apt-get install gcc
 apt-get install gcc-c++
 apt-get install cmake
@@ -23,7 +24,7 @@ cd ctags/
 make && make install
 echo 'alias ctags="ctags --output-format=e-ctags"' > ~/.bashrc
 source ~/.bashrc
-
+```
 
  vimrc 配置
 set nu
