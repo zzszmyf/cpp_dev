@@ -1,13 +1,11 @@
 FROM ubuntu:18.04
 RUN mkdir -p /env
-### cmake
-
 RUN apt-get clean
 RUN apt-get upgrade
 RUN apt-get update
 RUN apt-get -y install python3
 RUN apt-get -y install python3-pip
-RUN apt-get -y install curl git wget
+RUN apt-get -y install curl git wget zip
 RUN pip3 install conan
 # install clang
 RUN echo "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main" >> /etc/apt/sources.list
@@ -21,5 +19,10 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/clang-9 100
 RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/clang++-9 100
 RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang-9 100
 RUN update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-9 100
-WORKDIR /tmp
-
+# install cmake
+RUN mkdir -p ~/env
+WORKDIR /root/env
+COPY ./cmake.zip ./
+RUN unzip ./cmake.zip -d /root/env/cmake
+RUN ln -s /root/env/cmake/bin/cmake /usr/bin/cmake
+WORKDIR /root
