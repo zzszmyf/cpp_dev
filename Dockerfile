@@ -25,4 +25,14 @@ WORKDIR /root/env
 COPY ./cmake.zip ./
 RUN unzip ./cmake.zip -d /root/env/cmake
 RUN ln -s /root/env/cmake/bin/cmake /usr/bin/cmake
+RUN apt-get -y install autoconf automake libtool curl make unzip
+RUN wget https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protobuf-all-3.5.1.zip
+RUN unzip protobuf-all-3.5.1.zip
+WORKDIR /root/env/protobuf-3.5.1
+RUN ./autogen.sh
+RUN ./configure
+RUN make -j4
+RUN make check
+RUN make install 
+RUN ldconfig
 WORKDIR /root
